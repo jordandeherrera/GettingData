@@ -1,10 +1,7 @@
-## Jordan DeHerrera 9/11/2015
+##Jordan DeHerrera 09 27 2015
 ##1. Merge the training and test sets to create one data set
 
 #tells r where the train and test dataset files are located
-#change it to where your folder is located
-## Create a Github Repository and post online
-setwd("~/Desktop/fiverr/jsdeherrera/UCI HAR Dataset")
 
 subject_train <- read.table("train/subject_train.txt")
 subject_test <- read.table("test/subject_test.txt")
@@ -64,6 +61,62 @@ features <- read.table("features.txt")
 features[,3] <- paste(features[,1],features[,2]) #merge number and label column
 features_header <- c(features[1:561,3]) #change labels from a column into a set of char values
 
+#creating names for the dataframe header 
+#(this section is not required in the question, since these columns will be removed in q2, but its gd practice)
+data_body_acc_x <- data.frame(matrix(nrow=128, ncol=2))
+data_body_acc_x[,1] <- "body_acc_x"
+data_body_acc_x[,2] <- 1:128
+data_body_acc_x[,3] <- paste(data_body_acc_x[,1],data_body_acc_x[,2])
+body_acc_x_header <- c(data_body_acc_x[1:128,3])
+
+data_body_acc_y <- data.frame(matrix(nrow=128, ncol=2))
+data_body_acc_y[,1] <- "body_acc_y"
+data_body_acc_y[,2] <- 1:128
+data_body_acc_y[,3] <- paste(data_body_acc_y[,1],data_body_acc_y[,2])
+body_acc_y_header <- c(data_body_acc_y[1:128,3])
+
+data_body_acc_z <- data.frame(matrix(nrow=128, ncol=2))
+data_body_acc_z[,1] <- "body_acc_z"
+data_body_acc_z[,2] <- 1:128
+data_body_acc_z[,3] <- paste(data_body_acc_z[,1],data_body_acc_z[,2])
+body_acc_z_header <- c(data_body_acc_z[1:128,3])
+
+data_body_gyro_x <- data.frame(matrix(nrow=128, ncol=2))
+data_body_gyro_x[,1] <- "body_gyro_x"
+data_body_gyro_x[,2] <- 1:128
+data_body_gyro_x[,3] <- paste(data_body_gyro_x[,1],data_body_gyro_x[,2])
+body_gyro_x_header <- c(data_body_gyro_x[1:128,3])
+
+data_body_gyro_y <- data.frame(matrix(nrow=128, ncol=2))
+data_body_gyro_y[,1] <- "body_gyro_y"
+data_body_gyro_y[,2] <- 1:128
+data_body_gyro_y[,3] <- paste(data_body_gyro_y[,1],data_body_gyro_y[,2])
+body_gyro_y_header <- c(data_body_gyro_y[1:128,3])
+
+data_body_gyro_z <- data.frame(matrix(nrow=128, ncol=2))
+data_body_gyro_z[,1] <- "body_gyro_z"
+data_body_gyro_z[,2] <- 1:128
+data_body_gyro_z[,3] <- paste(data_body_gyro_z[,1],data_body_gyro_z[,2])
+body_gyro_z_header <- c(data_body_gyro_z[1:128,3])
+
+data_total_acc_x <- data.frame(matrix(nrow=128, ncol=2))
+data_total_acc_x[,1] <- "total_acc_x"
+data_total_acc_x[,2] <- 1:128
+data_total_acc_x[,3] <- paste(data_total_acc_x[,1],data_total_acc_x[,2])
+total_acc_x_header <- c(data_total_acc_x[1:128,3])
+
+data_total_acc_y <- data.frame(matrix(nrow=128, ncol=2))
+data_total_acc_y[,1] <- "total_acc_y"
+data_total_acc_y[,2] <- 1:128
+data_total_acc_y[,3] <- paste(data_total_acc_y[,1],data_total_acc_y[,2])
+total_acc_y_header <- c(data_total_acc_y[1:128,3])
+
+data_total_acc_z <- data.frame(matrix(nrow=128, ncol=2))
+data_total_acc_z[,1] <- "total_acc_z"
+data_total_acc_z[,2] <- 1:128
+data_total_acc_z[,3] <- paste(data_total_acc_z[,1],data_total_acc_z[,2])
+total_acc_z_header <- c(data_total_acc_z[1:128,3])
+
 #naming the columns of the combined dataframe, note that features_header is used here 
 names(dataset) <- c("subject_id", "activity_label", features_header, 
                     body_acc_x_header, body_acc_y_header, body_acc_z_header, 
@@ -109,8 +162,6 @@ for(i in 1:10299) {
 #naming the new column 
 names(dataset)[1716] <- 'activity_names'
 
-#naming the new column 
-names(dataset_mean_std)[69] <- 'activity_names'
 ##----------------------------------------------------------------------------------------------------
 #4. Appropriately labels the dataset with descriptive variable names 
 #done in step 1 
