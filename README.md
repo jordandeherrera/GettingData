@@ -3,7 +3,7 @@ Repository as part of Coursera John Hopkins Specialization Course
 Created by Jordan DeHerrera on 9/27/2015
 
 # File List
-## Data
+## Data - download and extract from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
 * Test (folder) - contains test data
 * Train (folder - contains training data
 * activity_labels.txt - part of data set; used to label activities in data set
